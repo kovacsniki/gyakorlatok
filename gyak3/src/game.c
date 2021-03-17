@@ -27,11 +27,13 @@ void update_game(Game* game, double time)
     update_ball(&(game->ball), time); //alatta ütközésvizsgálat
     if (game->ball.x - game->ball.radius < 50) {
         game->ball.x = game->ball.radius + 50;
-        game->ball.speed_x *= -1;
+        game->ball.speed_x *= -1.5;
+        game->radius = -10;
     }
     if (game->ball.x + game->ball.radius > game->width - 50) {
         game->ball.x = game->width - game->ball.radius - 50;
-        game->ball.speed_x *= -1;
+        game->ball.speed_x *= -1.5;
+        game->radius = -10;
     }
     if (game->ball.y - game->ball.radius < 0) {
         game->ball.y = game->ball.radius;
