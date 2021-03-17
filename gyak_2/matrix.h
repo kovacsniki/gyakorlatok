@@ -1,41 +1,30 @@
-#include "matrix.h"
+#ifndef MATRIX_H
+#define MATRIX_H
 
-#include <stdio.h>
+/**
+ * Initializes all elements of the matrix to zero.
+ */
+void init_zero_matrix(float matrix[3][3]);
 
-void init_zero_matrix(float matrix[3][3])
-{
-    int i;
-    int j;
+/**
+ * Initializes identity matrix.
+ */
+void init_identity_matrix(float matrix[3][3]);
 
-    for (i = 0; i < 3; ++i) {
-        for (j = 0; j < 3; ++j) {
-            matrix[i][j] = 0.0;
-        }
-    }
-}
+/**
+ * Print the elements of the matrix.
+ */
+void print_matrix(const float matrix[3][3]);
 
-void print_matrix(const float matrix[3][3])
-{
-    int i;
-    int j;
+/**
+ * Initializes multiplied matrix.
+ */
+void mult_scalar_matrix(float result[3][3], float scalar, float matrix[3][3]);
 
-    for (i = 0; i < 3; ++i) {
-        for (j = 0; j < 3; ++j) {
-            printf("%4.4f ", matrix[i][j]);
-        }
-        printf("\n");
-    }
-}
+/**
+ * Add matrices.
+ */
+void add_matrices(const float a[3][3], const float b[3][3], float c[3][3]);
 
-void add_matrices(const float a[3][3], const float b[3][3], float c[3][3])
-{
-    int i;
-    int j;
-
-    for (i = 0; i < 3; ++i) {
-        for (j = 0; j < 3; ++j) {
-            c[i][j] = a[i][j] + b[i][j];
-        }
-    }
-}
+#endif // MATRIX_H
 
